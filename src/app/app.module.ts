@@ -7,7 +7,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { NearDevicesComponent } from './near-devices/near-devices.component';
 import { LoadingContainerComponent } from './loading-container/loading-container.component';
-import { MatProgressSpinnerModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatError } from '@angular/material';
 
 import { 
   WebBluetoothModule
