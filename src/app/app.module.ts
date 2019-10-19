@@ -9,9 +9,8 @@ import { NearDevicesComponent } from './near-devices/near-devices.component';
 import { LoadingContainerComponent } from './loading-container/loading-container.component';
 import { MatProgressSpinnerModule, MatError } from '@angular/material';
 
-import { 
-  WebBluetoothModule
-} from '@manekinekko/angular-web-bluetooth';
+import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,13 +22,11 @@ import {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    MatProgressSpinnerModule,
-    WebBluetoothModule.forRoot({
-      enableTracing: true // or false, this will enable logs in the browser's console
-    })
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [ConnectOnCommuteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BluetoothTestComponent } from '../bluetooth-test/bluetooth-test.component';
+import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'near-devices',
@@ -10,44 +11,31 @@ export class NearDevicesComponent implements OnInit {
 
   public loading: boolean = false;
   public error: string = "";
-  constructor() { }
+  constructor(private connectService: ConnectOnCommuteService) { }
 
   ngOnInit() {
-    //this.loadNearDevices();
+    this.pingApi();
   }
 
-  public loadNearDevices() {
-    this.loading = true;
+  public pingApi() {
 
-    navigator.bluetooth.requestDevice({
-      acceptAllDevices: true,
-      optionalServices: ['battery_service']
-    })
-      .then(device => {
-        this.loading = false;
-        console.log(device);
-      })
-      .catch(error => {
-      this.error = error.message; this.loading = false;
-      });
-  }
-  public hitApi() {
-
+    console.log("ping");
     var options = {
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0
     };
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position){
+      navigator.geolocation.getCurrentPosition((position) => {
         console.log(position);
+        this.pingApi();
+        this.connectService.sendLocationToApi(position);
       },(err) => {
-
+        console.log("error");
+        this.pingApi();
       },options);
     }
   }
   public clickRetry() {
-    this.hitApi();
-    //this.loadNearDevices();
   }
 }

@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: false,
+  urls: {
+    connectOnCommuteApi: "https://connectoncommutebackend.azurewebsites.net/"
+  },
+  environmentTag: "DEV"
 };
