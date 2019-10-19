@@ -17,7 +17,7 @@ export class NavBarComponent implements OnInit {
 
   public loading: boolean = false;
   public error: string = "";
-  tick: NodeJS.Timer;
+  public tick: any;
 
 
   constructor(private auth: AuthService, private connectService: ConnectOnCommuteService, private router: Router) { }

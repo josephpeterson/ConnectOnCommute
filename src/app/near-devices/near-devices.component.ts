@@ -15,7 +15,7 @@ export class NearDevicesComponent implements OnInit {
 
   public loading: boolean = false;
   public error: string = "";
-  tick: NodeJS.Timer;
+  public tick: any;
   constructor(private connectService: ConnectOnCommuteService) { }
 
 
