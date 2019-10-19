@@ -17,4 +17,11 @@ export class ConnectOnCommuteService {
     this._url = environment.urls.connectOnCommuteApi;
   }
 
+  public sendLocationToApi(location: any) {
+    return this.http.post(this._url + '/People/UpdateLocation',location);
+  }
+
+  public getNearUsers() {
+    return this.http.get(this._url + '/People/Near');
+  }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
 import { HttpClient } from '@angular/common/http';
+import { Account } from 'src/models/Account';
+import { UserPosition } from 'src/models/UserPosition';
 
 @Component({
   selector: 'near-devices',
@@ -9,33 +11,37 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NearDevicesComponent implements OnInit {
 
+  public peopleNearMe: Account[];
+
   public loading: boolean = false;
   public error: string = "";
+  tick: NodeJS.Timer;
   constructor(private connectService: ConnectOnCommuteService) { }
 
+
+  public displayedColumns: string[] = ['firstName', 'lastName', 'email'];
+
   ngOnInit() {
-    this.pingApi();
+    this.getNearMe();
   }
 
-  public pingApi() {
-
-    console.log("ping");
-    var options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
-    };
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position);
-        this.pingApi();
-        //this.connectService.sendLocationToApi(position);
-      },(err) => {
-        console.log("error");
-        this.pingApi();
-      },options);
-    }
+  public getNearMe() {
+    clearTimeout(this.tick);
+    this.loading = true;
+    this.connectService.getNearUsers().subscribe((res: Account[]) => {
+      this.loading = false;
+      this.peopleNearMe = res;
+      this.schedule();
+    }, err => {
+      this.error = err.message;
+      this.loading = false;
+      this.schedule();
+    })
   }
-  public clickRetry() {
+  public schedule() {
+    clearTimeout(this.tick);
+    this.tick = setTimeout(() => {
+      this.getNearMe();
+    }, 10000);
   }
 }

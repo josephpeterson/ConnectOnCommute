@@ -1,7 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="#">ConnectOnCommute</a>
-	<a class="navbar-brand btn btn-link" (click)="clickLogin()">Login</a>
-  </nav>
-<div class="container w-50">
-  <signup-component></signup-component>
+<div class='home-container'>
+	<!--Navbar Starts Here, Only Logo is Displayed on this page 
+        because we don't want people to be able to access the rest of the app without logging in.
+        Can Probably replace bootstrap drop down with the angular one(?) -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#"><img src="assets/White.svg" width="80px"></a>
+	</nav>
+	<!--End Navbar-->
+
+	<!--Bootstrap Container-->
+	<div class="container" id="newUserContainer" style="margin-top:2em;">
+		<!--Row that has the logo (black vector file)-->
+		<div class="row" id="initialLogoRow">
+			<div class="col-md-6 offset-md-3">
+				<img src="assets/Black.svg" id="initialLogo" width="400px;">
+			</div>
+		</div>
+		<!--Row -->
+		<div class="row" style="margin-top:2em;">
+			<div class="col-md-6">
+				<!--Figure out how to make this text the same font as the logo-->
+				<h1>New to the movement?</h1>
+				<h3>Create an account to become a 'Connector' today!</h3>
+				<signup-component></signup-component>
+				<button class="btn btn-link" (click)="clickLogin()">Already a member? Click here to login</button>
+			</div>
+		</div>
+	</div>
 </div>

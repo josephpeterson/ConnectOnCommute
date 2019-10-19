@@ -1,6 +1,36 @@
+<h3>People Near Me</h3>
 <div class="alert alert-danger" *ngIf="error">{{error}}</div>
-<div *ngIf="!loading == false else loading">
-	<button class="btn btn-primary" (click)="clickRetry()">Retry</button>
+<div *ngIf="loading != true else loading">
+	<ng-container *ngIf="!peopleNearMe || peopleNearMe.length == 0 else table">
+		<div class="alert alert-primary">
+			No people currently around you
+		</div>
+		<button class=" btn btn-primary" (click)="getNearMe()">Retry</button>
+	</ng-container>
+	<ng-template #table>
+		<mat-table [dataSource]="peopleNearMe" class="mat-elevation-z8">
+			<!-- Position Column -->
+			<ng-container matColumnDef="firstName">
+				<mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+			</ng-container>
+			<!-- Name Column -->
+			<ng-container matColumnDef="lastName">
+				<mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+			</ng-container>
+
+			<ng-container matColumnDef="email">
+				<mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+			</ng-container>
+
+
+			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+			<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+		</mat-table>
+	</ng-template>
+
 </div>
 <ng-template #loading>
 	<loading-container></loading-container>
