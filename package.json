@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-dev": "ng build --configuration dev --outputPath=dist/environments/dev",
+    "build-prod": "ng build --configuration prod --aot --outputPath=dist/environments/prod"
   },
   "private": true,
   "dependencies": {
