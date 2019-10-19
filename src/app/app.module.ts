@@ -7,10 +7,21 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { NearDevicesComponent } from './near-devices/near-devices.component';
 import { LoadingContainerComponent } from './loading-container/loading-container.component';
-import { MatProgressSpinnerModule, MatError } from '@angular/material';
+import { MatProgressSpinnerModule, MatError, MatDatepickerModule, MatCardModule, MatTableModule, MatTabsModule, MatCheckboxModule, MatInputModule, MatSortModule, MatMenuModule, MatIconModule, MatListModule, MatToolbarModule, MatFormFieldModule, MatPaginatorModule, MatSelectModule, MatDialogModule, MatSliderModule, MatButtonModule, MatAutocompleteModule, MatNativeDateModule } from '@angular/material';
 
 import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthService } from 'src/services/auth.service';
+import { AuthGuard } from 'src/guards/AuthGuard';
+import { AquariumInterceptor } from 'src/services/auth.interceptor';
+import { HomeContainerComponent } from './home-container/home-container.component';
+import { LoginComponentComponent } from './login-component/login-component.component';
+import { SignupComponentComponent } from './signup-component/signup-component.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LogoutButtonComponent } from './logout-button/logout-button.component';
+
 
 @NgModule({
   declarations: [
@@ -18,15 +29,51 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     MainContainerComponent,
     NearDevicesComponent,
-    LoadingContainerComponent
+    LoadingContainerComponent,
+    HomeContainerComponent,
+    LoginComponentComponent,
+    SignupComponentComponent,
+    LogoutButtonComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatTableModule,
+    MatTabsModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatSortModule,
+    MatMenuModule,
+    MatIconModule,
+    MatListModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatAutocompleteModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
   ],
-  providers: [ConnectOnCommuteService],
+
+  providers: [
+    ConnectOnCommuteService,
+    AuthService,
+    AuthGuard,
+    //Providers for authenticaion
+    { provide: HTTP_INTERCEPTORS, useClass: AquariumInterceptor, multi: true },
+    //{ provide: 'OAuth.Environment', useValue: environment.environmentTag },
+    //{ provide: 'OAuth.ClientName', useValue: environment.appName },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

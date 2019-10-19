@@ -29,7 +29,7 @@ export class NearDevicesComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
         console.log(position);
         this.pingApi();
-        this.connectService.sendLocationToApi(position);
+        //this.connectService.sendLocationToApi(position);
       },(err) => {
         console.log("error");
         this.pingApi();

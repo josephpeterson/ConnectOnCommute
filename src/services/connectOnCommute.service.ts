@@ -16,9 +16,5 @@ export class ConnectOnCommuteService {
   constructor(private http: HttpClient) {
     this._url = environment.urls.connectOnCommuteApi;
   }
-  public sendLocationToApi(location: any) {
-     console.log("sadas");
-    return this.http.post(this._url + `/api/people`, location);
-  }
 
 }
