@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { Account } from 'src/models/Account';
 import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
 import { UserPosition } from 'src/models/UserPosition';
+import { AccountNotification } from 'src/models/AccountNotification';
+import { MatDialog } from '@angular/material';
+import { NotificationModalComponent } from '../modals/notification-modal/notification-modal.component';
 
 @Component({
   selector: 'nav-bar',
@@ -20,7 +23,7 @@ export class NavBarComponent implements OnInit {
   public tick: any;
 
 
-  constructor(private auth: AuthService, private connectService: ConnectOnCommuteService, private router: Router) { }
+  constructor(private auth: AuthService, private connectService: ConnectOnCommuteService, private router: Router,private dialog: MatDialog) { }
 
   ngOnInit() {
     this.pingApi();
@@ -38,6 +41,9 @@ export class NavBarComponent implements OnInit {
     this.error = null;
 
     console.log("ping");
+
+    this.getNotifications();
+
     var options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -73,5 +79,16 @@ export class NavBarComponent implements OnInit {
     this.tick = setTimeout(() => {
       this.pingApi();
     }, 10000);
+  }
+  public getNotifications() {
+    this.connectService.getNotifications().subscribe((notifs:AccountNotification[]) => {
+      if(notifs && notifs.length > 0)
+      {
+        notifs.forEach(n => {
+          var dialog = this.dialog.open(NotificationModalComponent);
+          dialog.componentInstance.notification = n;
+        })
+      }
+    })
   }
 }

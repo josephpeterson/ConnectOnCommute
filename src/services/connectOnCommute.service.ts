@@ -33,4 +33,13 @@ export class ConnectOnCommuteService {
   public toggleFindableStatus() {
     return this.http.get(this._url + '/People/ToggleFindable');
   }
+  public isConnected(targetId: number) {
+    return this.http.get(this._url + `/People/${targetId}/Connected`);
+  }
+  public getConnected(targetId: number) {
+    return this.http.get(this._url + `/People/${targetId}/Connect`);
+  }
+  public getNotifications() {
+    return this.http.get(this._url + `/People/Notifications`);
+  }
 }

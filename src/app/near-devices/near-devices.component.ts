@@ -11,7 +11,7 @@ import { UserPosition } from 'src/models/UserPosition';
 })
 export class NearDevicesComponent implements OnInit {
 
-  public peopleNearMe: Account[];
+  public peopleNearMe: Account;
 
   public loading: boolean = false;
   public error: string = "";
@@ -30,8 +30,8 @@ export class NearDevicesComponent implements OnInit {
     this.loading = true;
     this.connectService.getNearestUser().subscribe((res: Account) => {
       this.loading = false;
-      if(res != null)
-        this.peopleNearMe = [res];
+      this.peopleNearMe = res;
+      console.log(res);
       this.schedule();
     }, err => {
       this.error = err.message;

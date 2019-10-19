@@ -1,35 +1,23 @@
 <h3>People Near Me</h3>
 <div class="alert alert-danger" *ngIf="error">{{error}}</div>
 <div *ngIf="loading != true else loading">
-	<ng-container *ngIf="!peopleNearMe || peopleNearMe.length == 0 else table">
+	<ng-container *ngIf="!peopleNearMe else table">
 		<div class="alert alert-primary">
 			No people currently around you
 		</div>
 		<button class=" btn btn-primary" (click)="getNearMe()">Retry</button>
 	</ng-container>
 	<ng-template #table>
-		<mat-table [dataSource]="peopleNearMe" class="mat-elevation-z8">
-			<!-- Position Column -->
-			<ng-container matColumnDef="firstName">
-				<mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
-				<mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
-			</ng-container>
+		<div class="jumbotron jumbotron-fluid w-75 mr-auto ml-auto p-4">
 
-			<!-- Name Column -->
-			<ng-container matColumnDef="lastName">
-				<mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
-				<mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
-			</ng-container>
+			<h1 class="display-6">Nudge Nudge!</h1>
+			<p class="lead"><b>{{peopleNearMe.firstName}}</b> wants to connect, try asking them about
+				<b>{{peopleNearMe.question}}</b>.</p>
+			<div class="ml-auto mr-auto">
 
-			<ng-container matColumnDef="email">
-				<mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-				<mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
-			</ng-container>
-
-
-			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-			<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-		</mat-table>
+				<connect-button [target]="peopleNearMe"></connect-button>
+			</div>
+		</div>
 	</ng-template>
 
 </div>

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 import { Account} from '../../models/Account';
 import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
-import { faWheelchair } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'main-container',
@@ -14,8 +13,6 @@ export class MainContainerComponent implements OnInit {
   public user: Account = this.auth.getUser();
 
   public status;
-
-  public faHandicap = faWheelchair;
 
   constructor(private auth:AuthService,private connectService: ConnectOnCommuteService) { }
 

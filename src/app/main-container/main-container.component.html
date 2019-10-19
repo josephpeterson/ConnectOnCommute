@@ -1,7 +1,7 @@
 <nav-bar></nav-bar>
 <div class="container">
   <!-- Welcome back, {{user.firstName}} -->
-  <div *ngIf="status != null" class="row">
+  <div *ngIf="status != null" class="row mt-3">
     <status-button (click)="toggleFindableStatus()" [(status)]="status" class="ml-auto mr-auto"></status-button>
   </div>
 

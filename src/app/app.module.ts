@@ -24,6 +24,8 @@ import { LogoutButtonComponent } from './logout-button/logout-button.component';
 import { LoginModalComponent } from './modals/login-modal-component/login-modal-component.component';
 import { ProfilePageComponentComponent } from './profile-page-component/profile-page-component.component';
 import { StatusButtonComponent } from './status-button/status-button.component';
+import { ConnectButtonComponent } from './connect-button/connect-button.component';
+import { NotificationModalComponent } from './modals/notification-modal/notification-modal.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { StatusButtonComponent } from './status-button/status-button.component';
     LogoutButtonComponent,
     LoginModalComponent,
     ProfilePageComponentComponent,
-    StatusButtonComponent
+    StatusButtonComponent,
+    ConnectButtonComponent,
+    NotificationModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -71,7 +75,8 @@ import { StatusButtonComponent } from './status-button/status-button.component';
     FontAwesomeModule,
   ],
   entryComponents: [
-    LoginModalComponent
+    LoginModalComponent,
+    NotificationModalComponent
   ],
   providers: [
     ConnectOnCommuteService,
