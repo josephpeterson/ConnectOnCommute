@@ -61,25 +61,35 @@
       </div>
       <div class="col-md-6" style="margin-top:2em;">
         <!--Insert Welcome message here-->
-        <h1 class="welcome">Welcome Back [User]!</h1><!--Change Font to ConnectOnCommute Font-->
+        <h1 class="welcome">Welcome Back [User]!</h1>
+        <!--Change Font to ConnectOnCommute Font-->
       </div>
       <div class="col-md-3">
       </div>
     </div>
-    </div>
-<!--End First Bootstrap Container-->
-<!--Bootstrap Container inside dark Jumbotron, Dashboard-->
-<div class="jumbotron jumbotron-fluid text-white bg-dark mb-3" style="margin-top:1em;">
+  </div>
+  <!--End First Bootstrap Container-->
+  <!--Bootstrap Container inside dark Jumbotron, Dashboard-->
+  <div class="jumbotron jumbotron-fluid text-white bg-dark mb-3" style="margin-top:1em;">
     <div class="container">
       <div class="row">
-        <div class="col-md-6"><h1>Your Stats</h1></div>
-        <div class="col-md-6"><h1> Total Interactions: 5,016</h1></div>
+        <div class="col-md-6">
+          <h3>Your Stats</h3>
+          <h3> Total Interactions: 5,016</h3>
+        </div>
+        <div class="col-md-6" id="chartArea">
+          <!--Insert Graph Api Here-->
+            <img src="../images/graph.png" width=500px;>
+        </div>
       </div>
-      <div class="row">
-          <!--Insert Graph API Here-->
+    </div>
+  </div>
+  <div class="container" id="topicContainer">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3 id="talk">Talk to me about...</h3>
+        <h1 id="topic">Innovation & Startups</h1>
       </div>
-      
-      <p class="lead"></p>
     </div>
   </div>
 </body>

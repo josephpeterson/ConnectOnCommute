@@ -1,3 +1,7 @@
 .initial{
     background-image: url("../images/background.svg");
 }
+
+#talk{
+    text-align: center;
+}
