@@ -32,10 +32,18 @@ export class NearDevicesComponent implements OnInit {
       });
   }
   public hitApi() {
+
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position){
         console.log(position);
-      });
+      },(err) => {
+
+      },options);
     }
   }
   public clickRetry() {
