@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/services/auth.service';
+import { Account} from '../../models/Account';
 
 @Component({
   selector: 'main-container',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainContainerComponent implements OnInit {
 
-  constructor() { }
+  public user: Account = this.auth.getUser();
+
+  constructor(private auth:AuthService) { }
 
   ngOnInit() {
   }

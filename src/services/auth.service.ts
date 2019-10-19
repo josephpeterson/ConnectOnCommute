@@ -70,7 +70,12 @@ export class AuthService {
 
     var user = new Account();
     user.id = data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
-    //user.username = data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
+    var name = data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
+    if(name) {
+      name = name.split(" ");
+      user.firstName = name[0];
+      user.lastName = name[1];
+    }
     user.role = data["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
     user.email = data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"];
     return user;

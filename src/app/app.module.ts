@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
+import { LoginModalComponent } from './modals/login-modal-component/login-modal-component.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { LogoutButtonComponent } from './logout-button/logout-button.component';
     HomeContainerComponent,
     LoginComponentComponent,
     SignupComponentComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -64,7 +66,9 @@ import { LogoutButtonComponent } from './logout-button/logout-button.component';
     ReactiveFormsModule,
     FontAwesomeModule,
   ],
-
+  entryComponents: [
+    LoginModalComponent
+  ],
   providers: [
     ConnectOnCommuteService,
     AuthService,
