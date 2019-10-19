@@ -6,4 +6,5 @@ export class Account {
 	public question;
 	public seniorityDate;
 	public role;
+	public findableStatus;
 }

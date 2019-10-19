@@ -23,6 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
 import { LoginModalComponent } from './modals/login-modal-component/login-modal-component.component';
 import { ProfilePageComponentComponent } from './profile-page-component/profile-page-component.component';
+import { StatusButtonComponent } from './status-button/status-button.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ProfilePageComponentComponent } from './profile-page-component/profile-
     SignupComponentComponent,
     LogoutButtonComponent,
     LoginModalComponent,
-    ProfilePageComponentComponent
+    ProfilePageComponentComponent,
+    StatusButtonComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

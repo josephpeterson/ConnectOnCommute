@@ -27,4 +27,10 @@ export class ConnectOnCommuteService {
   public getNearestUser() {
     return this.http.get(this._url + '/People/Nearest');
   }
+  public getFindableStatus() {
+    return this.http.get(this._url + '/People/Findable');
+  }
+  public toggleFindableStatus() {
+    return this.http.get(this._url + '/People/ToggleFindable');
+  }
 }

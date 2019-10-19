@@ -1,5 +1,8 @@
 <nav-bar></nav-bar>
 <div class="container">
   Welcome back, {{user.firstName}}
+  <div class="row" *ngIf="status != null">
+    <status-button (click)="toggleFindableStatus()" [(status)]="status" class="ml-auto mr-auto"></status-button>
+  </div>
   <near-devices></near-devices>
 </div>
