@@ -1,0 +1,43 @@
+<!--This page will be the default to load, it contains the sign-up form for new members, as well as a link
+for users with accounts that prompts a pop-up form that authenticates their login-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>ConnectOnCommute</title>
+</head>
+<body class="initial">
+    <!--Navbar Starts Here, Only Logo is Displayed on this page 
+        because we don't want people to be able to access the rest of the app without logging in.
+        Can Probably replace bootstrap drop down with the angular one(?) -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#"><img src="../images/White.svg" width="80px"></a>
+        </nav>
+    <!--End Navbar-->
+
+    <!--Bootstrap Container-->
+    <div class="container" id="newUserContainer" style="margin-top:2em;">
+        <!--Row that has the logo (black vector file)-->
+        <div class="row" id="initialLogoRow">
+            <div class="col-md-6 offset-md-3">
+                <img src="../images/Black.svg" id="initialLogo" width="400px;">
+            </div>
+        </div>
+        <!--Row -->
+        <div class="row" style="margin-top:2em;">
+            <div class="col-md-6">
+                <!--Figure out how to make this text the same font as the logo-->
+                <h1>New to the movement?</h1>
+                <h3>Create an account to become a 'Connector' today!</h3>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
