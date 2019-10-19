@@ -47,8 +47,8 @@ export class NavBarComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
 
         var loc = new UserPosition();
-        loc.latitude = position.coords.latitude;
-        loc.longitude = position.coords.longitude;
+        loc.latitude = Math.round(position.coords.latitude);
+        loc.longitude = Math.round(position.coords.longitude);
         this.connectService.sendLocationToApi(loc).subscribe((pos) => {
           console.log("successfully shared location ",pos);
           this.loading = false;
