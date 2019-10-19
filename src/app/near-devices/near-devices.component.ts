@@ -28,9 +28,9 @@ export class NearDevicesComponent implements OnInit {
   public getNearMe() {
     clearTimeout(this.tick);
     this.loading = true;
-    this.connectService.getNearUsers().subscribe((res: Account[]) => {
+    this.connectService.getNearestUser().subscribe((res: Account) => {
       this.loading = false;
-      this.peopleNearMe = res;
+      this.peopleNearMe = [res];
       this.schedule();
     }, err => {
       this.error = err.message;

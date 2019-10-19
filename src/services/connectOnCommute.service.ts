@@ -24,4 +24,7 @@ export class ConnectOnCommuteService {
   public getNearUsers() {
     return this.http.get(this._url + '/People/Near');
   }
+  public getNearestUser() {
+    return this.http.get(this._url + '/People/Nearest');
+  }
 }
