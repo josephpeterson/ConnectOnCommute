@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
 import { LoginModalComponent } from './modals/login-modal-component/login-modal-component.component';
+import { ProfilePageComponentComponent } from './profile-page-component/profile-page-component.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LoginModalComponent } from './modals/login-modal-component/login-modal-
     LoginComponentComponent,
     SignupComponentComponent,
     LogoutButtonComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    ProfilePageComponentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

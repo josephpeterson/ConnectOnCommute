@@ -30,7 +30,8 @@ export class NearDevicesComponent implements OnInit {
     this.loading = true;
     this.connectService.getNearestUser().subscribe((res: Account) => {
       this.loading = false;
-      this.peopleNearMe = [res];
+      if(res != null)
+        this.peopleNearMe = [res];
       this.schedule();
     }, err => {
       this.error = err.message;
