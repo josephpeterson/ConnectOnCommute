@@ -42,4 +42,7 @@ export class ConnectOnCommuteService {
   public getNotifications() {
     return this.http.get(this._url + `/People/Notifications`);
   }
+  public getAllConnections() {
+    return this.http.get(this._url + `/People/Connections`);
+  }
 }

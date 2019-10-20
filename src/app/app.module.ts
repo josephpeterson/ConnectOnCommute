@@ -26,6 +26,8 @@ import { ProfilePageComponentComponent } from './profile-page-component/profile-
 import { StatusButtonComponent } from './status-button/status-button.component';
 import { ConnectButtonComponent } from './connect-button/connect-button.component';
 import { NotificationModalComponent } from './modals/notification-modal/notification-modal.component';
+import { ConnectionHistogramComponent } from './connection-histogram/connection-histogram.component';
+import { ConnectionLogComponent } from './connection-log/connection-log.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { NotificationModalComponent } from './modals/notification-modal/notifica
     ProfilePageComponentComponent,
     StatusButtonComponent,
     ConnectButtonComponent,
-    NotificationModalComponent
+    NotificationModalComponent,
+    ConnectionHistogramComponent,
+    ConnectionLogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

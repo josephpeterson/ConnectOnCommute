@@ -4,6 +4,7 @@ import { AuthGuard } from 'src/guards/AuthGuard';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { HomeContainerComponent } from './home-container/home-container.component';
 import { ProfilePageComponentComponent } from './profile-page-component/profile-page-component.component';
+import { ConnectionLogComponent } from './connection-log/connection-log.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,11 @@ const routes: Routes = [
     path: 'profile',
     canActivate: [AuthGuard],
     component: ProfilePageComponentComponent
+  },
+  {
+    path: 'logs',
+    canActivate: [AuthGuard],
+    component: ConnectionLogComponent
   },
   {
     path: '',

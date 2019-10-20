@@ -14,8 +14,7 @@
 			<p class="lead"><b>{{peopleNearMe.firstName}}</b> wants to connect, try asking them about
 				<b>{{peopleNearMe.question}}</b>.</p>
 			<div class="ml-auto mr-auto">
-
-				<connect-button [target]="peopleNearMe"></connect-button>
+				<connect-button [target]="peopleNearMe" (onConnected)="pingApi()"></connect-button>
 			</div>
 		</div>
 	</ng-template>

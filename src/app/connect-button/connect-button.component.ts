@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
 import { Account } from 'src/models/Account';
 
@@ -13,6 +13,8 @@ export class ConnectButtonComponent implements OnInit {
   public loading = true;
   public connected = false;
   @Input("target") public target: Account;
+
+  @Output() onConnected: EventEmitter<any> = new EventEmitter();
 
   constructor(public connectService: ConnectOnCommuteService) { }
 
