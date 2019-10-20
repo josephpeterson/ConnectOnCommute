@@ -21,10 +21,16 @@ export class ConnectButtonComponent implements OnInit {
   }
 
   public clickConnect() {
+    if(this.loading) return;
+
     this.disabled = true;
     this.connectService.getConnected(this.target.id).subscribe(val => {
-      
+      if(val)
+      {
+        this.checkConnection();
+      }
     },err => {
+      this.disabled = false;
       console.error(err);
     });
   }

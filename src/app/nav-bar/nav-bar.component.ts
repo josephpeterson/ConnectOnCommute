@@ -88,6 +88,7 @@ export class NavBarComponent implements OnInit {
           var dialog = this.dialog.open(NotificationModalComponent);
           dialog.componentInstance.notification = n;
         })
+        this.schedule();
       }
     })
   }
