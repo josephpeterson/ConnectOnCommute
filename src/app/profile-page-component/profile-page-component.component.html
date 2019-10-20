@@ -1,7 +1,7 @@
 <nav-bar></nav-bar>
 <!--Bootstrap Container-->
 <div class='profile-container'>
-<div class="container" id="newUserContainer" style="margin-top:2em;">
+  <div class="container" id="newUserContainer" style="margin-top:2em;">
     <!--Row that has the logo (black vector file)-->
     <div class="row" id="initialLogoRow">
       <div class="col-md-3">
@@ -19,25 +19,15 @@
   <!--End First Bootstrap Container-->
   <!--Bootstrap Container inside dark Jumbotron, Dashboard-->
   <div class="jumbotron jumbotron-fluid text-white bg-dark mb-3" style="margin-top:1em;">
-    <div class="container">
+    <div class="container" id="topicContainer">
       <div class="row">
-        <div class="col-md-6">
-          <h3>Your Stats</h3>
-          <h3> Total Interactions: 5,016</h3>
-        </div>
-        <div class="col-md-6" id="chartArea">
-          <!--Insert Graph Api Here-->
-            <img src="../../assets/graph.png" width=500px;>
+        <div class="col-md-6 offset-md-3">
+          <h3 id="talk">Talk to me about...</h3>
+          <h1 id="topic">Innovation & Startups</h1>
         </div>
       </div>
     </div>
   </div>
-  <div class="container" id="topicContainer">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h3 id="talk">Talk to me about...</h3>
-        <h1 id="topic">Innovation & Startups</h1>
-      </div>
-    </div>
-  </div>
+</div>
+
 </div>
