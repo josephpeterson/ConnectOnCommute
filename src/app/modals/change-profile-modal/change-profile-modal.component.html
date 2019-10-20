@@ -1,0 +1,17 @@
+<div>
+    <div class="card">
+      <div class="card-header">
+        <h3>Manage Profile</h3>
+      </div>
+      <div class="card-body">
+          <mat-form-field class="w-100">
+              <input [value]="account.question" matInput placeholder="Enter something to talk about..." [(ngModel)]="account.question">
+            </mat-form-field>
+      </div>
+      <mat-error>{{error}}</mat-error>
+    </div>
+    <mat-dialog-actions>
+      <button [disabled]="disabled" class="m-2 btn btn-danger" mat-dialog-close>Close</button>
+      <button [disabled]="disabled" class="m-2 btn btn-success" (click)="clickUpdate()">Complete</button>
+    </mat-dialog-actions>
+  </div>

@@ -8,7 +8,7 @@
     </div>
   
     <near-devices *ngIf="status"></near-devices>
-    <div *ngIf="!status" class="ml-auto mr-auto alert alert-info m-2 p-2">
+    <div *ngIf="!status && status != null" class="ml-auto mr-auto alert alert-info m-2 p-2">
       <p>You currently have social sharing turned off. People near by will not be able to discover you.</p>
     </div>
   
