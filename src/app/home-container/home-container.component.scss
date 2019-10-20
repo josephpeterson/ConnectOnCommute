@@ -4,18 +4,18 @@
 	height:100%;
 	background-image: url('../../assets/green-background.svg');
 	background-position: fixed;
+}
 	
-	#initialLogo{
-		text-align: center;
-	}
+#initialLogo{
+	text-align: center;
+}
 
-	.logo {
-		background-image: url('/assets/Black.svg');
-		background-repeat: no-repeat;
-		background-size:90% auto;
-		background-position: center center;
-		width: 80%;
-		max-width:600px;
-		min-height:300px;
-	}
+.logo {
+	background-image: url('/assets/Black.svg');
+	background-repeat: no-repeat;
+	background-size:90% auto;
+	background-position: center center;
+	width: 80%;
+	max-width:600px;
+	min-height:300px;
 }
