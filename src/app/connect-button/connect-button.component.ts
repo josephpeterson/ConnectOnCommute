@@ -11,12 +11,13 @@ export class ConnectButtonComponent implements OnInit {
 
   public disabled = false;
   public loading = true;
-  public connected = true;
+  public connected = false;
   @Input("target") public target: Account;
 
   constructor(public connectService: ConnectOnCommuteService) { }
 
   ngOnInit() {
+    this.checkConnection();
   }
 
   public clickConnect() {
@@ -33,7 +34,7 @@ export class ConnectButtonComponent implements OnInit {
       this.loading = false;
       this.connected = val;
     },err => {
-
+      console.error(err);
     })
   }
 }
