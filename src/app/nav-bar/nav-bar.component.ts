@@ -40,9 +40,8 @@ export class NavBarComponent implements OnInit {
     this.loading = true;
     this.error = null;
 
-    console.log("ping");
-
     this.getNotifications();
+    this.schedule();
 
     var options = {
       enableHighAccuracy: true,
@@ -58,19 +57,19 @@ export class NavBarComponent implements OnInit {
         this.connectService.sendLocationToApi(loc).subscribe((pos) => {
           console.log("successfully shared location ",pos);
           this.loading = false;
-          this.schedule();
+          //this.schedule();
 
         }, err => {
           console.log("Could not upload position");
           this.error = err.message;
           this.loading = false;
-          this.schedule();
+          //this.schedule();
         })
       }, (err) => {
         console.log("Could not retrieve position coordinates");
         this.error = err.message;
         this.loading = false;
-         this.schedule();
+         //this.schedule();
       }, options);
     }
   }
