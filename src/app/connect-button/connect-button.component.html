@@ -1,1 +1,8 @@
-<button [disabled]="disabled" class="btn btn-success" (click)="clickConnect()">Get Connected</button>
+<ng-container *ngIf="loading">
+  <button disabled class="btn btn-success">Checking...</button>
+</ng-container>
+<ng-container *ngIf="connected">
+  <p class="text-muted">You are already connected with this user.</p>
+    <button disabled class="btn btn-success">Connected</button>
+</ng-container>
+<button *ngIf="!loading && !connected" [disabled]="disabled" class="btn btn-success" (click)="clickConnect()">Get Connected</button>

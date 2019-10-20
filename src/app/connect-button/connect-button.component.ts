@@ -10,6 +10,8 @@ import { Account } from 'src/models/Account';
 export class ConnectButtonComponent implements OnInit {
 
   public disabled = false;
+  public loading = true;
+  public connected = true;
   @Input("target") public target: Account;
 
   constructor(public connectService: ConnectOnCommuteService) { }
@@ -24,5 +26,14 @@ export class ConnectButtonComponent implements OnInit {
     },err => {
       console.error(err);
     });
+  }
+
+  public checkConnection() {
+    this.connectService.isConnected(this.target.id).subscribe((val:boolean) => {
+      this.loading = false;
+      this.connected = val;
+    },err => {
+
+    })
   }
 }
