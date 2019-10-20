@@ -11,6 +11,7 @@ import { Account } from 'src/models/Account';
 export class ChangeProfileModalComponent implements OnInit {
 
   public account: Account;
+  public error: string;
   public disabled: boolean = false;
   constructor(private _dialog: MatDialogRef<ChangeProfileModalComponent>, private connectService: ConnectOnCommuteService) { }
 
