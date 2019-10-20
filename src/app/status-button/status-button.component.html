@@ -1,4 +1,1 @@
-<button *ngIf="!status" class="btn btn-success">Enable Discovery</button>
-<button *ngIf="status" class="btn btn-danger">
-  Disable
-</button>
+<div class="pulsating-circle" [ngClass]="{on: status}"></div>

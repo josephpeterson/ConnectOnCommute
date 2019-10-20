@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 import { Account} from '../../models/Account';
 import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
+import $ from 'jquery';
 
 @Component({
   selector: 'main-container',
@@ -13,6 +14,8 @@ export class MainContainerComponent implements OnInit {
   public user: Account = this.auth.getUser();
 
   public status;
+
+  public a = 0;
 
   constructor(private auth:AuthService,private connectService: ConnectOnCommuteService) { }
 

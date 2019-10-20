@@ -1,11 +1,11 @@
-<h3>People Near Me</h3>
 <div class="alert alert-danger" *ngIf="error">{{error}}</div>
 <div *ngIf="loading != true else loading">
 	<ng-container *ngIf="!peopleNearMe else table">
 		<div class="alert alert-primary">
+			<button class=" btn btn-link float-right p-0" (click)="getNearMe()"><fa-icon [icon]="faSync" class="mr-1"></fa-icon>Refresh</button>
 			No people currently around you
+			
 		</div>
-		<button class=" btn btn-primary" (click)="getNearMe()">Retry</button>
 	</ng-container>
 	<ng-template #table>
 		<div class="jumbotron jumbotron-fluid w-75 mr-auto ml-auto p-4">

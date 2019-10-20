@@ -1,13 +1,16 @@
-<nav-bar></nav-bar>
-<div class="container">
-  <!-- Welcome back, {{user.firstName}} -->
-  <div *ngIf="status != null" class="row mt-3">
-    <status-button (click)="toggleFindableStatus()" [(status)]="status" class="ml-auto mr-auto"></status-button>
-  </div>
+<div class="main-container">
 
-  <near-devices *ngIf="status"></near-devices>
-  <div *ngIf="!status" class="ml-auto mr-auto alert alert-info m-2 p-2">
-    <p>You currently have social sharing turned off. People near by will not be able to discover you.</p>
+  <nav-bar></nav-bar>
+  <div class="container">
+    <!-- Welcome back, {{user.firstName}} -->
+    <div *ngIf="status != null" class="row mt-3">
+      <status-button (click)="toggleFindableStatus()" [(status)]="status" class="ml-auto mr-auto"></status-button>
+    </div>
+  
+    <near-devices *ngIf="status"></near-devices>
+    <div *ngIf="!status" class="ml-auto mr-auto alert alert-info m-2 p-2">
+      <p>You currently have social sharing turned off. People near by will not be able to discover you.</p>
+    </div>
+  
   </div>
-
 </div>
