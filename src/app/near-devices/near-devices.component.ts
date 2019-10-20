@@ -3,6 +3,7 @@ import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
 import { HttpClient } from '@angular/common/http';
 import { Account } from 'src/models/Account';
 import { UserPosition } from 'src/models/UserPosition';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'near-devices',
@@ -12,6 +13,7 @@ import { UserPosition } from 'src/models/UserPosition';
 export class NearDevicesComponent implements OnInit {
 
   public peopleNearMe: Account;
+  public faSync = faSync;
 
   public loading: boolean = false;
   public error: string = "";
