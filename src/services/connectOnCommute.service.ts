@@ -2,6 +2,7 @@ import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "../environments/environment";
+import { Account } from 'src/models/Account';
 
 
 const httpOptions = {
@@ -44,5 +45,11 @@ export class ConnectOnCommuteService {
   }
   public getAllConnections() {
     return this.http.get(this._url + `/People/Connections`);
+  }
+  public updateAccount(account: Account) {
+    return this.http.post(this._url + `/People/Update`,account);
+  }
+  public getMyAccount() {
+    return this.http.get(this._url + `/People/Me`);
   }
 }

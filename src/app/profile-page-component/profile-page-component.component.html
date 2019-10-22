@@ -1,6 +1,6 @@
 <nav-bar></nav-bar>
 <!--Bootstrap Container-->
-<div class='profile-container'>
+<div class='profile-container' *ngIf="user$ | async as user">
   <div class="container" id="newUserContainer" style="margin-top:2em;">
     <!--Row that has the logo (black vector file)-->
     <div class="row" id="initialLogoRow">
@@ -9,7 +9,7 @@
       </div>
       <div class="col-md-6" style="margin-top:2em;">
         <!--Insert Welcome message here-->
-        <h1 class="welcome">Welcome Back [User]!</h1>
+        <h1 class="welcome">Welcome Back {{user.firstName}} {{user.lastName}}!</h1>
         <!--Change Font to ConnectOnCommute Font-->
       </div>
       <div class="col-md-3">
@@ -23,9 +23,11 @@
       <div class="row">
         <div class="col-md-6 offset-md-3">
           <h3 id="talk">Talk to me about...</h3>
-          <h1 id="topic">Innovation & Startups</h1>
+          <h1 id="topic">{{user.question}}</h1>
+          <button class="btn btn-info" (click)="clickChangeQuestion(user)">Change...</button>
         </div>
       </div>
     </div>
   </div>
+  <connection-log></connection-log>
 </div>

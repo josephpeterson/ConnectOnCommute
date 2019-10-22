@@ -28,6 +28,7 @@ import { ConnectButtonComponent } from './connect-button/connect-button.componen
 import { NotificationModalComponent } from './modals/notification-modal/notification-modal.component';
 import { ConnectionHistogramComponent } from './connection-histogram/connection-histogram.component';
 import { ConnectionLogComponent } from './connection-log/connection-log.component';
+import { ChangeProfileModalComponent } from './modals/change-profile-modal/change-profile-modal.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ConnectionLogComponent } from './connection-log/connection-log.componen
     ConnectButtonComponent,
     NotificationModalComponent,
     ConnectionHistogramComponent,
-    ConnectionLogComponent
+    ConnectionLogComponent,
+    ChangeProfileModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -80,7 +82,8 @@ import { ConnectionLogComponent } from './connection-log/connection-log.componen
   ],
   entryComponents: [
     LoginModalComponent,
-    NotificationModalComponent
+    NotificationModalComponent,
+    ChangeProfileModalComponent
   ],
   providers: [
     ConnectOnCommuteService,
