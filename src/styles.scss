@@ -14,3 +14,8 @@
 	background-image: url('/assets/Transparent.svg');
 	background-position: fixed;
 }
+@media (max-width: 320px) {
+	.home-container {
+		width: 320px !important;
+	}
+}
