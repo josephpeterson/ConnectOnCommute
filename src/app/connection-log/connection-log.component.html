@@ -2,7 +2,7 @@
 
   <div *ngIf="connections$ | async else nothing">
 
-    <table id="connection-table" mat-table [dataSource]="connections$ | async" class="connection-table mt-3 mat-elevation-z8 w-100">
+    <table id="connection-table" mat-table [dataSource]="connections$ | async" class="connection-table table table-dark mt-3 mat-elevation-z8 w-100">
 
       <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
