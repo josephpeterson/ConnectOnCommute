@@ -1,40 +1,25 @@
-<div class="container">
+<div class="">
+  <table *ngIf="connections$ | async else nothing" id="connection-table" mat-table [dataSource]="connections$ | async"
+    class="table table-striped table-dark w-100">
 
-  <div *ngIf="connections$ | async else nothing">
+    <ng-container matColumnDef="timestamp">
+      <th *matHeaderCellDef> Date </th>
+      <td *matCellDef="let element"> {{getEntryAge(element.timestamp)}} </td>
+    </ng-container>
 
-    <table id="connection-table" mat-table [dataSource]="connections$ | async" class="connection-table table table-dark mt-3 mat-elevation-z8 w-100">
+    <ng-container matColumnDef="firstName">
+      <th *matHeaderCellDef> Name </th>
+      <td *matCellDef="let element"> {{element.target.firstName}} {{element.target.lastName}} </td>
+    </ng-container>
 
-      <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
+    <ng-container matColumnDef="email">
+      <th *matHeaderCellDef> Email </th>
+      <td *matCellDef="let element"> {{element.target.email}} </td>
+    </ng-container>
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="timestamp">
-        <th mat-header-cell *matHeaderCellDef> Date </th>
-        <td mat-cell *matCellDef="let element"> {{element.timestamp | date:'medium' }} </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="firstName">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.target.firstName}} </td>
-      </ng-container>
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.target.lastName}} </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef> Email </th>
-        <td mat-cell *matCellDef="let element"> {{element.target.email}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
   <ng-template #nothing>
     <h4>You do not have any connections</h4>
   </ng-template>

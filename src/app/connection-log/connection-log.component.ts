@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'connection-log',
@@ -8,7 +9,7 @@ import { ConnectOnCommuteService } from 'src/services/connectOnCommute.service';
 })
 export class ConnectionLogComponent implements OnInit {
 
-  displayedColumns: string[] = ['timestamp', 'firstName', 'lastName', 'email'];
+  displayedColumns: string[] = ['timestamp', 'firstName', 'email'];
 
   public connections$ = this.connectService.getAllConnections();
 
@@ -16,5 +17,12 @@ export class ConnectionLogComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+  public getEntryAge(date) {
+    return moment(date).fromNow();
+
+  }
+
 
 }

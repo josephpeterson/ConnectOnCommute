@@ -1,7 +1,18 @@
-body .container .container-table 
-{
-	#connection-table {
 
-		color:white !important;
+#connection-table {
+
+	color:white !important;
+	overflow: hidden;
+
+	th,td {
+		background-color:#343a40;
+		color:white;
+	}
+	td {
+		word-wrap: break-word;
+		text-overflow: ellipsis;
+		overflow: hidden;
+
+		
 	}
 }
