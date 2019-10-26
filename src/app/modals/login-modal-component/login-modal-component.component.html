@@ -1,5 +1,4 @@
-<div>
-
+<form>
   <div class="card">
     <div class="card-header">
       <h3>Sign In</h3>
@@ -46,6 +45,6 @@
   </div>
   <mat-dialog-actions>
     <button [disabled]="disabled" class="m-2 btn btn-secondary" mat-dialog-close>Close</button>
-    <button [disabled]="disabled" class="m-2 btn btn-success" (click)="clickLogin();">Login</button>
+    <input [disabled]="disabled" class="m-2 btn btn-success" (click)="clickLogin();" type="submit" value="Login">
   </mat-dialog-actions>
-</div>
+</form>

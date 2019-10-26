@@ -15,7 +15,6 @@ import { AuthService } from 'src/services/auth.service';
 import { AuthGuard } from 'src/guards/AuthGuard';
 import { AquariumInterceptor } from 'src/services/auth.interceptor';
 import { HomeContainerComponent } from './home-container/home-container.component';
-import { LoginComponentComponent } from './login-component/login-component.component';
 import { SignupComponentComponent } from './signup-component/signup-component.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,7 +38,6 @@ import { ChangeProfileModalComponent } from './modals/change-profile-modal/chang
     NearDevicesComponent,
     LoadingContainerComponent,
     HomeContainerComponent,
-    LoginComponentComponent,
     SignupComponentComponent,
     LogoutButtonComponent,
     LoginModalComponent,
